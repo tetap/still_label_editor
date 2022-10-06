@@ -9,7 +9,8 @@
     "lint:eslint": "eslint --fix --ext .js,.ts,.tsx ./src",
     "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,ts,json,tsx,css,less,scss,html,md}\"",
     "lint:stylelint": "stylelint --fix \"**/*.{less,postcss,css,scss}\"",
-    "format": "npm run lint:eslint && npm run lint:stylelint && npm run lint:prettier"
+    "format": "npm run lint:eslint && npm run lint:stylelint && npm run lint:prettier",
+    "deploy": "tsc && vite build && copy dist\\index.html dist\\404.html && gh-pages -d dist"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
@@ -24,6 +25,7 @@
     "@mui/material": "^5.10.8",
     "ahooks": "^3.7.0",
     "axios": "^0.27.2",
+    "gh-pages": "^4.0.0",
     "i18next": "^21.9.0",
     "i18next-browser-languagedetector": "^6.1.5",
     "i18next-http-backend": "^1.4.1",
@@ -53,6 +55,7 @@
     "lint-staged": "^13.0.3",
     "path": "^0.12.7",
     "prettier": "^2.7.1",
+    "rollup-plugin-copy": "^3.4.0",
     "sass": "^1.54.5",
     "styled-components": "^5.3.5",
     "stylelint": "^14.10.0",
