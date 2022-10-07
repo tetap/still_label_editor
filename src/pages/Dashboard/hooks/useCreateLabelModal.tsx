@@ -36,8 +36,10 @@ export function useCreateLabelModal() {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>Disagree</Button>
-            <Button onClick={handleClose} autoFocus>
+            <Button onClick={handleClose} tabIndex={-1}>
+              Disagree
+            </Button>
+            <Button onClick={handleClose} tabIndex={-1}>
               Agree
             </Button>
           </DialogActions>
