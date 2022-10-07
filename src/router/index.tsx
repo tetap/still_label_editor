@@ -7,5 +7,5 @@ export const Routes = React.memo(() => {
   for (const lib in libs) {
     routes.push(...libs[lib].default)
   }
-  return <>{useRoutes(routes)}</>
+  return useRoutes(routes)
 })

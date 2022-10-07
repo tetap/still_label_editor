@@ -1,15 +1,15 @@
 import { Suspense, lazy } from 'react'
+import Backdrop from '@mui/material/Backdrop'
+import CircularProgress from '@mui/material/CircularProgress'
 
 export function lazyComponent(func: () => Promise<{ default: React.ComponentType<any> }>) {
   const Element = lazy(func)
   return (
     <Suspense
       fallback={
-        <div
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 50 }}
-        >
-          Loading...
-        </div>
+        <Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open invisible>
+          <CircularProgress color="inherit" />
+        </Backdrop>
       }
     >
       <Element />
