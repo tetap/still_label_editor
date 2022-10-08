@@ -44,7 +44,7 @@ const BasicSider = React.memo(() => {
             <ListItemIcon sx={{ minWidth: 30 }}>
               <GridViewIcon />
             </ListItemIcon>
-            <ListItemText primary={t('BasicSider.AllLabel')} />
+            <ListItemText primary={t('BasicSider.AllLabels')} />
           </ListItemButton>
         </List>
       </Paper>

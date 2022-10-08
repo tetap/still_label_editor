@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import { BasicHeader, BasicSider } from './components'
+import { BasicHeader } from './components'
 import Box from '@mui/material/Box'
 
 export const BasicLayout = React.memo(() => {
@@ -21,23 +21,10 @@ export const BasicLayout = React.memo(() => {
           minHeight: '1px',
           minWidth: '1px',
           width: 1,
-          display: 'flex',
-          justifyContent: 'center'
+          position: 'relative'
         }}
       >
-        <BasicSider />
-        <Box
-          sx={{
-            flex: 1,
-            minHeight: '1px',
-            minWidth: '1px',
-            width: 1,
-            height: 1,
-            padding: 2
-          }}
-        >
-          <Outlet />
-        </Box>
+        <Outlet />
       </Box>
     </Box>
   )

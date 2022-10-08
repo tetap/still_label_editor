@@ -9,6 +9,7 @@ export const CardButton = React.memo((props: CardButtonProps) => {
   const { icon, children, ...rest } = props
   return (
     <Paper
+      tabIndex={-1}
       variant="outlined"
       sx={{
         '&:hover': {

@@ -17,6 +17,12 @@ const dashboard: RouteObject[] = [
         element: lazyComponent(
           () => import(/* webpackChunkName: "Dashboard" */ '@/pages/Dashboard/Dashboard')
         )
+      },
+      {
+        path: '/editor',
+        element: lazyComponent(
+          () => import(/* webpackChunkName: "Editor" */ '@/pages/Editor/Editor')
+        )
       }
     ]
   }
