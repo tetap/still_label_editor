@@ -1,21 +1,23 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Box from '@mui/material/Box'
-import { Sider, Content, Setting, Background } from './components'
-import { StillLabel } from '@/utils/still_label_editor'
+import { Sider, useContent, Setting } from './components'
+import StillLabel, { onWheel } from '@/utils/still_label_editor'
 
 const Editor: React.FC = () => {
-  const id = 'container'
-  const initEditor = useCallback(() => {
-    return <div>123</div>
-  }, [])
+  const { Content, contentRef } = useContent()
   useEffect(() => {
-    console.log(document.getElementById(id))
+    if (!contentRef.current) return
+    const container = contentRef.current
+    const { clientWidth: width, clientHeight: height } = container
+    const Stage = new StillLabel.Stage({ container, width, height })
+    const template = new StillLabel.Template(50, 30, Stage)
+    Stage.add(template)
+    Stage.initEvent([onWheel])
   }, [])
   return (
     <Box sx={{ width: 1, height: 1, position: 'relative', display: 'flex' }}>
-      <Background />
       <Sider />
-      <Content id={id}>{initEditor()}</Content>
+      <Content />
       <Setting />
     </Box>
   )
