@@ -17,7 +17,7 @@ export class Template {
     this.width = width
     this.height = height
   }
-  get Size() {
+  get() {
     return { width: this.width, height: this.height }
   }
 }
